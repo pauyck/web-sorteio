@@ -1,4 +1,6 @@
 <!doctype html>
+<%@page import="controler.Sorteio"%>
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -43,12 +45,10 @@
 						});
 			});
 </script>
-
 <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
-<!-- This is a very simple parallax effect achieved by simple CSS 3 multiple backgrounds, made by http://twitter.com/msurguy -->
+
 </head>
 <body>
-
 	<div class="container">
 		<div class="row vertical-offset-100">
 			<div class="col-md-4 col-md-offset-4">
@@ -57,17 +57,20 @@
 						<h2>Sorteio de 1 a 10</h2>
 					</div>
 					<div class="panel-body">
-
 						<div class="alert alert-success" role="alert">
-							<h1>RESULTADO</h1>
+							<h1>
+								<% controler.Sorteio numeros = (controler.Sorteio) session.getAttribute("numeros");	%>
+								<%=numeros.sorteado()%>
+							</h1>
 						</div>
 						<!-- Indicates a successful or positive action -->
-						<button type="button" class="btn btn-success btn-lg btn3d">
+						<button type="button" class="btn btn-success btn-lg btn3d"
+							type="submit" name="acao" value="sortear">
 							<span class="glyphicon glyphicon-ok"></span> SORTEAR
 						</button>
 
-
-						<button type="button" class="btn btn-danger btn-lg btn3d">
+						<button type="button" class="btn btn-danger btn-lg btn3d"
+							type="submit" name="acao" value="reiniciar">
 							<span class="glyphicon glyphicon-remove"></span> REINICIAR
 						</button>
 					</div>
