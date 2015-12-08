@@ -1,6 +1,6 @@
 <!doctype html>
-<%@page import="controler.Sorteio"%>
-
+<%@page import="mvc.ServletPrincipal"%>
+<%@page import="mvc.SorteioControle"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -58,19 +58,21 @@
 					</div>
 					<div class="panel-body">
 						<div class="alert alert-success" role="alert">
+							<%
+							SorteioControle num = (SorteioControle) session.getAttribute("numeros");
+							%>
 							<h1>
-								<% controler.Sorteio numeros = (controler.Sorteio) session.getAttribute("numeros");	%>
-								<%=numeros.sorteado()%>
+								<%=num.sorteado()%>
 							</h1>
 						</div>
 						<!-- Indicates a successful or positive action -->
 						<button type="button" class="btn btn-success btn-lg btn3d"
-							type="submit" name="acao" value="sortear">
+							type="submit" name="sortear" value="sortear">
 							<span class="glyphicon glyphicon-ok"></span> SORTEAR
 						</button>
 
 						<button type="button" class="btn btn-danger btn-lg btn3d"
-							type="submit" name="acao" value="reiniciar">
+							type="submit" name="reiniciar" value="reiniciar">
 							<span class="glyphicon glyphicon-remove"></span> REINICIAR
 						</button>
 					</div>

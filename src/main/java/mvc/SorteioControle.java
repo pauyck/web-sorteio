@@ -1,13 +1,13 @@
-package controler;
+package mvc;
 
 import java.util.ArrayList;
 
-public class Sorteio {
+public class SorteioControle {
 	private ArrayList<Integer> numeros;
 	private String num;
 	private int y;
 
-	public Sorteio() {
+	public SorteioControle() {
 		popular();
 	}
 
@@ -16,11 +16,11 @@ public class Sorteio {
 		num = "?";
 		y =0;
 		for (int i = 1; i <= 10; i++) {
-			getSorteio().add(i);
+			getNumeros().add(i);
 		}
 	}
 
-	public ArrayList<Integer> getSorteio() {
+	public ArrayList<Integer> getNumeros() {
 		return numeros;
 	}
 
@@ -55,6 +55,5 @@ public class Sorteio {
 	public String sorteado() {
 		return num;
 	}
+
 }
-
-
